@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --main-color: #f8b281;
+  --secondary-color: #1b1b1b;
+}
+
+@font-face {
+  font-family: "argonite";
+  src: url(./src/stone\ orgonite.woff);
+}
+
+body {
+  background-color: rgb(235, 235, 235);
+  overflow-x: hidden;
+}
+
+section {
+  padding: 5%;
+}
+
+.first-page {
+  min-height: 100vh; /*uzima citavu stranu klase/diva i ako dodajemo nove stvari on ce se produzavati za razliku od obicnog height*/
+  color: white;
+  background-image: url(./src/hero_bg.jpg);
+  background-position: 22%;
+  background-size: cover;
+}
+
+.links {
+  position: absolute; /*postavljamo abosolute kako bi mogli da koristimo top, left itd*/
+  background-color: #fff;
+  width: 100%;
+  height: 100vh; /*u ovom slucaju citav ekran ce biti nav*/
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transform: translateX(
+    100%
+  ); /*transliramo linkove na skroz desnu stranu i onda unutar body pisemo overflow-x: hidden akko bi sakrili linkove*/
+}
+
+.links a {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2.5rem; /* 1rem = 16px - bolje je koristiti rem jer se namesta kada se ide responsive*/
+  line-height: 120%;
+  padding: 1rem 0rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 120%;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /*centrira iteme horizontalno ali je potrebno napisati display flex*/
+}
+
+.logo h1 {
+  margin-left: 0.5rem;
+  font-family: "argonite", sans-serif;
+}
+
+.logo img {
+  width: 2rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav svg {
+  cursor: pointer;
+  z-index: 1; /*posto kada kliknemo na ikonicu burger pojavice se linkovi ali se nece videti birger ikonica posto se nalazi iza linkova zato pisemo z-index i bilo koji broj iznad 0 mozemo pisati 99 ako hocemo*/
+}
+
+.hero {
+  padding-top: 20vh;
+  font-family: "argonite";
+  text-shadow: 0px 4px 10px rgb(27, 27, 27); /*1. x-soca, 2. y-osa, 3. blur*/
+  text-align: center;
+}
+
+.hero h3 {
+  font-family: sans-serif;
+  font-weight: lighter;
+}
+
+.main-btn {
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+}
+
+.main-btn a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.btns button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 20px rgb(46, 46, 46);
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.btns {
+  margin-top: 4rem;
+}
+
+.classes {
+  text-align: center;
+  font-family: "argonite", sans-serif;
+  color: var(--secondary-color);
+}
+
+.videos video {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  height: 650px;
+}
+
+.yoga,
+.meditation,
+.pilates {
+  position: relative; /*morali smo staviti relative posto cemo tekst nakaciti na njih ali tekst nije relativan na nista */
+}
+
+.videos h3 {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -10%
+  ); /*kako bi bilo perfektno centrirano u odnosu na sto smo dali za bottom i left*/
+  color: var(--main-color);
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.397);
+  font-size: 2.5rem;
+}
+
+.about-us {
+  color: var(--secondary-color);
+}
+
+.story h2 {
+  text-align: center;
+  font-family: "argonite", sans-serif;
+}
+
+.story p {
+  line-height: 140%;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  text-indent: 2rem;
+}
+
+.about-us img {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 786px) {
+  .videos {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+  }
+
+  .about-us {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .about-us img {
+    width: 50%;
+  }
+
+  .story h2 {
+    text-align: start;
+  }
+}
